@@ -1,6 +1,139 @@
 # 更新日志
 
-除日常更新词库外的一些主要更新 🆕 及破坏性变更 ⚠️。
+除日常更新词库外的一些主要更新 🆕、破坏性变更 ⚠️。
+
+---
+
+*2026.06.03 Release*
+
+## 2026-05-30
+
+- ⚠️ config(schema)：更改了 radical_pinyin 和 melt_eng 方案的算法节点名称。如果之前打过补丁，全量拉取后，要重新修改节点名称为正确的值。
+
+## 2026-04-27
+
+- ⚠️ feat(lua): 更改农历 lua 模块实现方式。添加节气、星期支持，添加个性化支持。对照国家标准 GB/T 33661-2017 修正数据和表达规范。**此提交引入了新的文件，`lua/lunar.db`，请确保在更新后正确安装和引用该文件。**
+
+---
+
+*2026.03.26 Release*
+
+## 2026-03-26
+
+- test: 新增自动化测试和 yaml / lua 语法检查。用例覆盖主流程，在提交时运行。
+
+## 2026-03-21
+
+- fix(lua): 修复时区问题(#1501)
+
+## 2026-03-11
+
+- dict(radical)：拆字词典覆盖拓展区 b - j 汉字
+
+## 2026-03-08
+
+- feat: 加入一些时间和日期的自定义展示 [#1485](https://github.com/iDvel/rime-ice/pull/1485)
+    - 中英日期触发关键字，全拼默认为 `rqzh` 和 `rqen`，双拼默认为 `datezh` 和 `dateen`
+
+## 2026-01-26
+
+- dict(symbol)：删除了 V/v 模式中的 emoji 集合
+
+## 2026-01-05
+
+- docs: 添加在线试用链接，由 @Mintimate 友情构建
+
+---
+
+*2025.12.08 Release*
+
+## 2025-12-08
+
+- 修正了 lua 注释中的引入错误 [#1405](https://github.com/iDvel/rime-ice/issues/1405)
+
+## 2025-10-31
+
+- `uuid.lua` 生成符合 RFC 4122 标准的 UUID v4 [#1383](https://github.com/iDvel/rime-ice/pull/1383)
+
+## 2025-10-23
+
+- 以词定字长句输入支持 ([#1252](https://github.com/iDvel/rime-ice/issues/1252))
+- 计算器百分号支持([#1298](https://github.com/iDvel/rime-ice/pull/1298))
+
+## 2025-06-09
+
+- 添加拼音加加双拼方案 [#1228](https://github.com/iDvel/rime-ice/pull/1228)
+
+---
+
+*2025.04.06 Release*
+
+## 2025-04-06
+
+- 消除输入框里大写字母之间的空格 [#1213](https://github.com/iDvel/rime-ice/issues/1213)
+
+## 2025-03-30
+
+- `editor` 配置示例（定制操作键的行为） [#1131](https://github.com/iDvel/rime-ice/pull/1131)
+
+## 2025-03-30
+
+- 所有中文词汇的连接号暂时统一使用 Hyphen-minus `U+002D` [#1194](https://github.com/iDvel/rime-ice/pull/1194)
+
+## 2025-02-24
+
+- 适配 `punctuator` 新属性 [#1180](https://github.com/iDvel/rime-ice/issues/1180)
+
+---
+
+*2024.12.12 Release*
+
+## 2024-12-06
+
+- ⚠️ Lua 模块引用方式变更
+    - 删除了 `rime.lua`
+    - 在方案中引用时添加 `*` 前缀
+
+---
+
+*2024.11.29 Release*
+
+## 2024-11-27
+
+- `calc_translator.lua` 🆕： 计算器插件，按 `cC` 后输入算式获得结果
+
+## 2024-11-21
+
+- ⚙️ 非夹注的 symbol 调用按键从 `vfj` 更改为 `vfjz`
+
+## 2024-11-04
+
+- ⚠️ 同步新版鼠须管配置，注意 `candidate_format` 和 1.0.0 之前的版本不兼容，需要手动改回旧版 `candidate_format: '%c. %@'`
+
+---
+
+*2024-09-25 Release*
+
+## 2024-09-25
+
+- `number_translator.lua`：⚙️ 依会计凭证书写要求，修正万亿的金额大写格式
+- radical_pinyin: 🆕 拆字词典更新至 v2，包含更多汉字
+
+## 2024-08-29
+- `cold_word_drop`：🆕 支持 iOS (#1003)
+
+## 2024-08-18
+
+- ci: 词典处理脚本可在 GitHub CI 中运行，提交信息以 ` [build]` 结尾或者手动执行时触发。
+
+## 2024-07-27
+
+- `number_translator.lua`: 🆕 转换时，将「拾万」和「壹拾万」作为两个独立的候选。
+- `en_spacer.lua`：⚠️ 现在不会在中英标点、空字符前添加空格。将在英文后添加空格，修改为在英文前添加空格。
+
+---
+
+*2024.05.21 Release*
 
 ## 2024-05-15
 
